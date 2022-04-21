@@ -59,3 +59,51 @@ def task8():
         f"\t\t m: " + str(as_mo_20) + " \t sigma: " + str(as_d_20) + "\n"
         f"n = 100 \n"
         f"\t\t m: " + str(as_mo_100) + " \t sigma: " + str(as_d_100) + "\n")
+
+  # additional task - build histogram + intervals for classic
+  figure, axes = plt.subplots(2, 2, figsize = (11.8, 3.9))#three different graphics in pic
+  plt.subplots_adjust(wspace=0.5)#fix title landing
+  figure.suptitle("Histograms and intervals for classic", y = 1, fontsize = 20)#name graphic
+  axes[0][0].hist(samples20, density = 1, edgecolor = "blue", alpha = 0.3)
+  axes[0][0].set_title("N(0,1) histogram,n = 20")
+
+  axes[0][1].hist(samples100, density = 1, edgecolor = "blue", alpha = 0.3)
+  axes[0][1].set_title("N(0,1) histogram, n = 100")
+
+  axes[1][0].set_ylim(-0.1, 0.5)
+  axes[1][0].plot(student_20, [0,0], 'ro-', label = 'm interval, n = 20')
+  axes[1][0].plot(student_100, [0.1, 0.1], 'bo-', label = 'm interval, n = 100')
+  axes[1][0].legend()
+  axes[1][0].set_title('m intervals')
+
+  axes[1][1].set_ylim(-0.1, 0.5)
+  axes[1][1].plot(chi_20, [0,0], 'ro-', label = 'sigma interval, n = 20')
+  axes[1][1].plot(chi_100, [0.1, 0.1], 'bo-', label='sigma interval, n = 100')
+  axes[1][1].legend()
+  axes[1][1].set_title("sigma intervals")
+
+  plt.show()
+
+  # additional task - build histogram + intervals
+  figure, axes = plt.subplots(2, 2, figsize = (11.8, 3.9))#three different graphics in pic
+  plt.subplots_adjust(wspace=0.5)#fix title landing
+  figure.suptitle("Histograms and intervals for asymptotic", y = 1, fontsize = 20)#name graphic
+  axes[0][0].hist(samples20, density = 1, edgecolor = "blue", alpha = 0.3)
+  axes[0][0].set_title("N(0,1) histogram,n = 20")
+
+  axes[0][1].hist(samples100, density = 1, edgecolor = "blue", alpha = 0.3)
+  axes[0][1].set_title("N(0,1) histogram, n = 100")
+
+  axes[1][0].set_ylim(-0.1, 0.5)
+  axes[1][0].plot(as_mo_20, [0,0], 'ro-', label = 'm interval, n = 20')
+  axes[1][0].plot(as_mo_100, [0.1, 0.1], 'bo-', label = 'm interval, n = 100')
+  axes[1][0].legend()
+  axes[1][0].set_title('m intervals')
+
+  axes[1][1].set_ylim(-0.1, 0.5)
+  axes[1][1].plot(as_d_20, [0,0], 'ro-', label = 'sigma interval, n = 20')
+  axes[1][1].plot(as_d_100, [0.1, 0.1], 'bo-', label='sigma interval, n = 100')
+  axes[1][1].legend()
+  axes[1][1].set_title("sigma intervals")
+
+  plt.show()
